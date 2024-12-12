@@ -41,7 +41,7 @@ int	initialize_map(int argc, char *argv[], t_map **map)
 {
 	if (argc != 2)
 	{
-		printf("Uso: %s <nombre_del_archivo>\n", argv[0]);
+		printf("Uso: %s <ruta_del_mapa>\n", argv[0]);
 		return (1);
 	}
 	if (!check_map_ber(argv[1]))

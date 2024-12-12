@@ -54,18 +54,19 @@ int	validate_textures(t_data *mlx)
 int	print_error_so(t_error_code code)
 {
 	const char	*error_messages[] = {
-	[E10] = "Error: Debe haber al menos un coleccionable en el mapa.",
-	[E11] = "Error: bordes superior o inferior no están rodeados de muros.",
+	[E10] = "\nError: Debe haber al menos un coleccionable en el mapa.\n",
+	[E11] = "\nError: bordes superior o inferior no están rodeados de muros.\n",
 	[E12] = "Error: los bordes izquierdo o derecho no están rodeados de muros.",
-	[E13] = "Error: Debe haber exactamente un jugador en el mapa.",
-	[E14] = "No se pudo leer el mapa.",
-	[E15] = "Debe tener al menos 1 salida el mapa.",
-	[E16] = "Error: El mapa no es rectangular.",
-	[E17] = "Error: Caracter no válido en el mapa.",
-	[E18] = "Error al abrir el archivo.",
-	[E19] = "Error de memoria.",
-	[E20] = "¡Debes recoger todos los coleccionables antes de salir!\n",
-	[UNKNOWN_ERROR] = "Error desconocido."
+	[E13] = "\nError: Debe haber solo 1 jugador y 1 salida en el mapa.\n",
+	[E14] = "\nNo se pudo leer el mapa.\n",
+	[E15] = "\nDebe tener al menos 1 salida el mapa.",
+	[E16] = "\nError: El mapa no es rectangular.",
+	[E17] = "\nError: Caracter no válido en el mapa.",
+	[E18] = "\nError al abrir el archivo.",
+	[E19] = "\nError de memoria.",
+	[E20] = "\n¡Debes recoger todos los coleccionables antes de salir!\n",
+	[E21] = "\n!ERROR MAS DE 1 PLAYER!\n",	
+	[UNKNOWN_ERROR] = "\nError desconocido.\n"
 	};
 
 	if (code >= 0 && code <= UNKNOWN_ERROR)

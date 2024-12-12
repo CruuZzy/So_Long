@@ -39,11 +39,17 @@ int	check_map_borders(t_map *map)
 
 	i = -1;
 	if (map->cols <= 0 || map->rows <= 0)
+	{
 		print_error_so(E11);
+		return (0);
+	}
 	while (++i < map->cols)
 	{
 		if (map->map_data[0][i] != '1' || map->map_data[map->rows -1][i] != '1')
+		{
 			print_error_so(E11);
+			return (0);
+		}
 	}
 	i = -1;
 	while (++i < map->rows)
@@ -73,12 +79,13 @@ int	check_map_elements(t_map *map)
 			process_map_char(map->map_data[c][d], &player_count,
 				&exit_count, &collectible_count);
 	}
-	if (player_count != 1)
+	if (player_count != 1 || exit_count != 1)
+	{
 		print_error_so(E13);
-	if (exit_count == 0 || collectible_count == 0)
-		print_error_so(E15);
+		return (0);
+	}
 	if (collectible_count == 0)
-		print_error_so(E10);
+		print_error_so(E15);
 	return (1);
 }
 
@@ -98,11 +105,26 @@ int	validate_map(t_map *map)
 int	check_map_ber(const char *filename)
 {
 	int	len;
+	int	i;
+	int	last_dot;
 
 	len = ft_strlen(filename);
 	if (len < 4)
+	{
+		ft_printf("Archivo muy corto como para tener una extension valida");
 		return (0);
-	if (ft_strncmp(&filename[len - 4], ".ber", 4) == 0)
-		return (1);
-	return (0);
+	}
+	if (ft_strncmp(&filename[len - 4], ".ber", 4) != 0)
+	{
+		ft_printf("El archivo no tiene la extension .ber\n");
+		return (0);
+	}
+	last_dot = len - 4;
+	i = -1;
+	while (++i < last_dot)
+	{
+		if (filename[i] == '.')
+			return (ft_printf("El mapa no debe tener varias extensiones."), 0);
+	}
+	return (1);
 }
