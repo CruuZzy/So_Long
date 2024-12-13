@@ -71,6 +71,7 @@ typedef enum e_error_code
 	E18,
 	E19,
 	E20,
+	E21,
 	UNKNOWN_ERROR
 }	t_error_code;
 
