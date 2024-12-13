@@ -41,7 +41,7 @@ int	initialize_map(int argc, char *argv[], t_map **map)
 {
 	if (argc != 2)
 	{
-		printf("Uso: %s <ruta_del_mapa>\n", argv[0]);
+		ft_printf("Uso: %s <ruta_del_mapa>\n", argv[0]);
 		return (1);
 	}
 	if (!check_map_ber(argv[1]))
@@ -80,7 +80,7 @@ int	load_and_verify_textures(t_data *mlx)
 	if (!mlx->floor_img || !mlx->wall_img
 		|| !mlx->collectible_img || !mlx->player_img)
 	{
-		printf("Error: Alguna de las texturas no se cargó correctamente.\n");
+		ft_printf("Error: Alguna de las texturas no se cargó correctamente.\n");
 		mlx_destroy_window(mlx->mlx_ptr, mlx->mlx_win);
 		mlx_destroy_display(mlx->mlx_ptr);
 		free(mlx->mlx_ptr);
