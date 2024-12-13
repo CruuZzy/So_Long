@@ -17,7 +17,6 @@
 # include "../mlx/mlx.h"
 # include <fcntl.h>
 # include <X11/keysym.h>
-# include <stdio.h>
 
 # define INITIAL_CAPACITY 10
 # define HEIGHT  600
