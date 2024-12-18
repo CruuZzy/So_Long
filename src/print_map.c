@@ -38,6 +38,18 @@ void	load_textures(t_data *mlx)
 	validate_textures(mlx);
 }
 
+char	*trim_newline(char *line)
+{
+	int	len;
+
+	if (!line)
+		return (NULL);
+	len = ft_strlen(line);
+	if (len > 0 && line[len - 1] == '\n')
+		line[len - 1] = '\0';
+	return (line);
+}
+
 int	draw_map(t_data *mlx)
 {
 	int	y;
@@ -53,11 +65,6 @@ int	draw_map(t_data *mlx)
 		}
 	}
 	return (0);
-}
-
-int	draw_map_hook(void *param)
-{
-	return (draw_map((t_data *)param));
 }
 
 int	process_keycode(int keycode, int *new_x, int *new_y, t_data *mlx)

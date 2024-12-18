@@ -21,10 +21,16 @@ int	check_map_shape(t_map *map)
 	while (++i < map->rows)
 	{
 		len = ft_strlen(map->map_data[i]);
-		ft_printf("Fila %d: %s", i, map->map_data[i]);
 		if (map->map_data[i][len - 1] == '\n')
 			len--;
-		if (len != map->cols)
+		if (i == 0)
+			map->cols = len;
+		else if (len != map->cols)
+		{
+			print_error_so(E16);
+			return (0);
+		}
+		if (map->rows == map->cols)
 		{
 			print_error_so(E16);
 			return (0);
@@ -55,7 +61,7 @@ int	check_map_borders(t_map *map)
 	while (++i < map->rows)
 	{
 		if (map->map_data[i][0] != '1' || map->map_data[i][map->cols -1] != '1')
-			print_error_so(E12);
+			return (print_error_so(E12), 0);
 	}
 	return (1);
 }
@@ -98,6 +104,8 @@ int	validate_map(t_map *map)
 	if (!check_map_elements(map))
 		return (0);
 	if (!check_map_surroundings(map))
+		return (0);
+	if (!check_map_accessibility(map))
 		return (0);
 	return (1);
 }

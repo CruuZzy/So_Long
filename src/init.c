@@ -55,7 +55,7 @@ int	initialize_map(int argc, char *argv[], t_map **map)
 	return (*map == NULL);
 }
 
-t_map	*initialize_map_struct(void)
+t_map	*initialize_map_struct(int fd)
 {
 	t_map	*map;
 
@@ -63,6 +63,7 @@ t_map	*initialize_map_struct(void)
 	if (!map)
 	{
 		print_error_so(E19);
+		close(fd);
 		return (NULL);
 	}
 	map->rows = 0;

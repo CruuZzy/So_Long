@@ -66,15 +66,14 @@ t_map	*read_map(const char *filename)
 	int		capacity;
 
 	fd = open_map_file(filename);
-	map = initialize_map_struct();
-	if (!map)
-		return (close(fd), NULL);
+	map = initialize_map_struct(fd);
 	map_data = allocate_map_data(&capacity);
 	if (!map_data)
 		return (handle_map_data_error(map, fd));
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
+		line = trim_newline(line);
 		process_line(line, map);
 		if (map->rows > capacity)
 			if (!expand_map_data(&map_data, &capacity))

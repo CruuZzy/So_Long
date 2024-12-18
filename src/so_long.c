@@ -26,7 +26,7 @@ int	handle_close(t_data *mlx)
 void	setup_hooks_and_loop(t_data *mlx)
 {
 	mlx_hook(mlx->mlx_win, 17, 0, handle_close, mlx);
-	mlx_loop_hook(mlx->mlx_ptr, draw_map_hook, mlx);
+	mlx_loop_hook(mlx->mlx_ptr, draw_map, mlx);
 	mlx_key_hook(mlx->mlx_win, key_hook, mlx);
 	mlx_loop(mlx->mlx_ptr);
 }

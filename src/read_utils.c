@@ -23,7 +23,7 @@ void	process_line(char *line, t_map *map)
 	}
 	map->rows++;
 	if (map->cols == 0)
-		map->cols = ft_strlen(line) - 1;
+		map->cols = ft_strlen(line);
 	i = -1;
 	while (++i < map->cols)
 	{

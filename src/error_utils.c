@@ -60,12 +60,13 @@ int	print_error_so(t_error_code code)
 	[E13] = "\nError: Debe haber solo 1 jugador y 1 salida en el mapa.\n",
 	[E14] = "\nNo se pudo leer el mapa.\n",
 	[E15] = "\nDebe tener al menos 1 salida el mapa.",
-	[E16] = "\nError: El mapa no es rectangular.",
+	[E16] = "Error: El mapa no es rectangular.",
 	[E17] = "\nError: Caracter no válido en el mapa.",
 	[E18] = "\nError al abrir el archivo.",
 	[E19] = "\nError de memoria.",
 	[E20] = "\n¡Debes recoger todos los coleccionables antes de salir!\n",
-	[E21] = "\n!ERROR MAS DE 1 PLAYER!\n",	
+	[E21] = "\n!ERROR MAS DE 1 PLAYER!\n",
+	[E22] = "\nAlgun coleccionable, salida o jugador estan bloqueados\n",	
 	[UNKNOWN_ERROR] = "\nError desconocido.\n"
 	};
 
