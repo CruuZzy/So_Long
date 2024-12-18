@@ -30,6 +30,7 @@ RESET		= \033[0m
 
 SRC			= $(SRCDIR)so_long.c $(SRCDIR)read_map.c $(SRCDIR)map_check.c $(SRCDIR)print_map.c \
 				$(SRCDIR)error_utils.c $(SRCDIR)init.c $(SRCDIR)read_utils.c $(SRCDIR)checks.c \
+				$(SRCDIR)flood_fill.c
 
 OBJ			= $(SRC:$(SRCDIR)%.c=$(OBJFILES)%.o)
 
