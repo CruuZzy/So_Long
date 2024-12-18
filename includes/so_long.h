@@ -71,6 +71,7 @@ typedef enum e_error_code
 	E19,
 	E20,
 	E21,
+	E22,
 	UNKNOWN_ERROR
 }	t_error_code;
 
@@ -81,7 +82,6 @@ int		validate_map(t_map *map);
 int		check_map_ber(const char *filename);
 int		handle_close(t_data *mlx);
 int		render_next_frame(void *param);
-int		draw_map_hook(void *param);
 int		print_error_so(t_error_code code);
 int		key_hook(int keycode, t_data *mlx);
 int		initialize_mlx(t_data *mlx, t_map *map);
@@ -97,7 +97,8 @@ void	setup_hooks_and_loop(t_data *mlx);
 void	cleanup(t_data *mlx, t_map *map);
 void	process_line(char *line, t_map *map);
 char	**allocate_map_data(int *capacity);
-t_map	*initialize_map_struct(void);
+char	*trim_newline(char *line);
+t_map	*initialize_map_struct(int fd);
 t_map	*read_map(const char *filename);
 t_map	*finalize_map_reading(int fd, t_map *map, char **map_data);
 t_map	*handle_map_data_error(t_map *map, int fd);
@@ -112,5 +113,10 @@ int		cleanup_and_exit(t_map *map, int exit_code);
 void	process_map_char(char map_char, int *player_count,
 			int *exit_count, int *collectible_count);
 void	draw_map_element(t_data *mlx, int x, int y, char element);
+void 	flood_fill(t_map *map, int x, int y, char **visited);
+char	**copy_map(char **map_data, int rows);
+int		check_accessibility(t_map *map);
+int		check_map_accessibility(t_map *map);
+void	free_visited(char **visited, int rows);
 
 #endif
