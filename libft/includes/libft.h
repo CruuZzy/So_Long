@@ -107,5 +107,4 @@ char			*get_next_line(int fd);
 char			*ft_getline_after_n(char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 
-
 #endif
