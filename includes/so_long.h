@@ -113,7 +113,7 @@ int		cleanup_and_exit(t_map *map, int exit_code);
 void	process_map_char(char map_char, int *player_count,
 			int *exit_count, int *collectible_count);
 void	draw_map_element(t_data *mlx, int x, int y, char element);
-void 	flood_fill(t_map *map, int x, int y, char **visited);
+void	flood_fill(t_map *map, int x, int y, char **visited);
 char	**copy_map(char **map_data, int rows);
 int		check_accessibility(t_map *map);
 int		check_map_accessibility(t_map *map);
